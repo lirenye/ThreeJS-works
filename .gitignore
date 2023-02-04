@@ -15,3 +15,5 @@ npm-debug.log
 ##test/e2e/chromium
 
 **/node_modules
+**/dist
+**/.cache
