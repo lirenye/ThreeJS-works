@@ -1,0 +1,21 @@
+{
+  "name": "learnthreejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "source": "src/public/index.html",
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "three": "^0.149.0"
+  }
+}
