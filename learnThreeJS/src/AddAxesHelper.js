@@ -1,5 +1,5 @@
 'use strict'
-// 目标：控制3d物体移动
+// 目标：添加坐标轴辅助器
 
 import {Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, Mesh, MeshBasicMaterial, AxesHelper} from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
@@ -27,7 +27,6 @@ const cubeGeometry = new BoxGeometry(1,1,1)
 const cubeMaterial = new MeshBasicMaterial({color: 0x00ff00})
 // 根据几何体和材质创建物体
 const cube = new Mesh(cubeGeometry, cubeMaterial)
-console.log(cube)
 // 将物体加入场景中
 scene.add(cube)
 
@@ -55,9 +54,6 @@ scene.add(axesHelper)
 function render(){
   rendere.render(scene, camera)
   // 渲染下一帧的时候就会调用render函数
-  // 更改物体位置
-  cube.position.x += 0.1
-  if(cube.position.x > 5) cube.position.x = 0;
   requestAnimationFrame(render)
 };
 
