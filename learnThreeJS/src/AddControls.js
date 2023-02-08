@@ -1,7 +1,7 @@
 'use strict'
 // 目标：使用控制器查看3d物体
 
-import {Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, Mesh, MeshBasicMaterial, AxesHelper} from 'three'
+import {Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, Mesh, MeshBasicMaterial} from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
 
 
@@ -32,9 +32,7 @@ scene.add(cube)
 
 
 // 初始化渲染器
-const rendere = new WebGLRenderer({
-  antialias: true
-})
+const rendere = new WebGLRenderer()
 // 设置渲染器大小
 rendere.setSize(window.innerWidth, window.innerHeight)
 // 将webgl渲染的canvas添加到body
@@ -45,11 +43,6 @@ document.body.appendChild(rendere.domElement)
 
 // 创建轨道渲染器
 const controls = new OrbitControls(camera, rendere.domElement)
-
-
-// 添加坐标轴辅助器
-const axesHelper = new AxesHelper(5)
-scene.add(axesHelper)
 
 function render(){
   rendere.render(scene, camera)
