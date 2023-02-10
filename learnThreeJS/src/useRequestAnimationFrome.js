@@ -1,10 +1,9 @@
 'use strict'
-// 目标：掌握gsap设置各种动画效果
+// 目标：认识requestAnimationFrame
 
-import {Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, Mesh, MeshBasicMaterial, AxesHelper, Clock} from 'three'
+import {Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, Mesh, MeshBasicMaterial, AxesHelper} from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
-// 导入动画库
-import gsap from 'gsap'
+
 
 // 创建场景
 const scene = new Scene()
@@ -57,16 +56,17 @@ const controls = new OrbitControls(camera, rendere.domElement)
 const axesHelper = new AxesHelper(5)
 scene.add(axesHelper)
 
-
-// 设置动画
-gsap.to(cube.position, {x: 5, duration: 5, ease: "elastic.out"})
-gsap.to(cube.rotation, {x: (2 * Math.PI), duration: 5, ease: "power1.inOut"})
-
-// 设置时钟
-const clock = new Clock();
 function render(time){
-
   rendere.render(scene, camera)
+  // 渲染下一帧的时候就会调用render函数
+  // 更改物体位置
+  // cube.position.x += 0.01
+  // cube.rotation.x += 0.01
+  // if(cube.position.x > 5) cube.position.x = 0;
+
+  let t = time / 1000 % 5;
+  cube.position.x = t * 1
+  // if(cube.position.x > 5) cube.position.x = 0;
   requestAnimationFrame(render)
   // requestAnimationFrame会对回调函数传入参数`time`，类型为：时间戳
   // console.log(time)
