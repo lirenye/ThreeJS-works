@@ -1,5 +1,5 @@
 'use strict'
-// 目标：掌握gsap控制动画属性和方法
+// 目标：渲染画布自适应
 
 import {Scene, PerspectiveCamera, WebGLRenderer, BoxGeometry, Mesh, MeshBasicMaterial, AxesHelper, Clock} from 'three'
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
